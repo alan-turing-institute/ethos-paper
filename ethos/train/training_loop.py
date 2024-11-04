@@ -129,7 +129,10 @@ def train_ethos(args):
 
     if not args.no_compile:
         print("Compiling the model...")
-        model = th.compile(model)
+        if device == "mps":
+            model = th.compile(model, backend="aot_eager")
+        else:
+            model = th.compile(model)
 
     # wrap model into DDP container
     if ddp:

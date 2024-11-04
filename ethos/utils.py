@@ -70,7 +70,7 @@ def load_data(
 
 def setup_torch(device, dtype, seed=42):
     th.manual_seed(seed)
-    device_type = "cuda" if "cuda" in device else "cpu"
+    device_type = "cuda" if "cuda" in device else device
     if dtype == "bfloat16" and device_type == "cuda" and not th.cuda.is_bf16_supported():
         print("WARNING: bfloat16 is not supported on this device, using float16 instead")
         dtype = "float16"

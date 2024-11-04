@@ -60,7 +60,7 @@ from ethos.train import train_ethos
 # DDP settings
 @option("--backend", default="nccl", type=Choice(["nccl", "gloo"]))
 # system
-@option("--device", default="cuda", type=Choice(["cuda", "cpu"]))
+@option("--device", default="cuda", type=Choice(["cuda", "cpu", "mps"]))
 @option("--dtype", default="bfloat16", type=Choice(["float32", "bfloat16", "float16"]))
 @option("--no_compile", is_flag=True, help="Don't compile the model using Triton.")
 # optional
